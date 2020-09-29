@@ -9,9 +9,15 @@ int sum() {
     b = 123;
     sum = a + b;
     printf("sum is %d\n", sum);
+    return sum;
 }
 
-
+int max(int a, int b) {
+    if (a > b)
+        return a;
+    else
+        return b;
+}
 int* f86() {
     int a[10];
     int* p;
@@ -23,7 +29,7 @@ int* f86() {
     for (p = a; p < a + 10; p++) {
         printf("%d", *p);
     }
-    return a;
+    return p;
 }
 
 void f87(int* a, int n) {
@@ -138,7 +144,34 @@ void f9_1() {
         long num;
         char name[10];
         char addr[20];
-    }a = { 10101 };
+    }a = { 10101,"dsds","123456Neoakdlskl" };
+    printf("num:%d\tname:%s\taddress:%s\n", a.num, a.name, a.addr);
+}
+void f9_2() {
+
+    struct Student
+    {
+        int num;
+        char name[20];
+        float score;
+    }student1, student2;
+
+    scanf("%d%s%f", &student1.num, student1.name, &student1.score);
+    scanf("%d%s%f", &student2.num, student2.name, &student2.score);
+    printf("The higher score is:\n");
+    if (student1.score>student2.score)
+    {
+        printf("%d %s %6.2f\n", student1.num, student1.name, student1.score);
+    }
+    else if(student1.score > student2.score)
+    {
+        printf("%d %s %6.2f\n", student2.num, student2.name, student2.score);
+    }
+    else
+    {
+        printf("%d %s %6.2f\n", student1.num, student1.name, student1.score);
+        printf("%d %s %6.2f\n", student2.num, student2.name, student2.score);
+    }
 }
 
 int main() {
@@ -166,14 +199,7 @@ int main() {
     //    f10_1();
     //    f10_2();
     //    f10_3();
-
-
+    //f9_1();
+    f9_2();
 }
 
-int max(int a, int b) {
-    register int c;
-    if (a > b)
-        return a;
-    else
-        return b;
-}
